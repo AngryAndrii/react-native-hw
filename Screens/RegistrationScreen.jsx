@@ -4,23 +4,21 @@ import {
   View,
   ImageBackground,
   TextInput,
-  Button,
   TouchableOpacity,
+  Image,
 } from "react-native";
 
-const wallpaper = require("../images/photo-bg.png");
+const wallpaper = require("../assets/images/photo-bg.png");
+const addPhotoIcon = require("../assets/images/add.png");
 
 export default function RegistrationScreen() {
   return (
-    // <View style={styles.container}>
-    //   <ImageBackground source={BackgroundImage} />
-    //   {/* <Text>Hello</Text>
-    //   <TextInput placeholder="Type text" style={styles.input} /> */}
-    // </View>
     <View style={styles.container}>
       <ImageBackground source={wallpaper} style={styles.backgroundImage}>
         <View style={styles.regContainer}>
-          <View style={styles.avatarWrapper}></View>
+          <View style={styles.avatarWrapper}>
+            <Image source={addPhotoIcon} style={styles.addButton}></Image>
+          </View>
           <Text style={styles.regText}>Реєстрація</Text>
           <TextInput style={styles.textInput} placeholder="Логін" />
           <TextInput
@@ -35,8 +33,10 @@ export default function RegistrationScreen() {
           </View>
 
           <TouchableOpacity style={styles.button}>
-            <Text style={{ ...styles.mainColor }}>Зареєстуватися</Text>
+            <Text style={{ color: "#fff", fontSize: 16 }}>Зареєстуватися</Text>
           </TouchableOpacity>
+
+          <Text style={styles.footerText}>Вже є акаунт? Увійти</Text>
         </View>
       </ImageBackground>
     </View>
@@ -44,9 +44,6 @@ export default function RegistrationScreen() {
 }
 
 const styles = StyleSheet.create({
-  mainColor: {
-    color: "#fff",
-  },
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -78,6 +75,13 @@ const styles = StyleSheet.create({
     left: 128,
     borderRadius: 16,
   },
+  addButton: {
+    position: "absolute",
+    width: 25,
+    height: 25,
+    right: -13,
+    bottom: 20,
+  },
   regText: {
     textAlign: "center",
     fontSize: 30,
@@ -101,8 +105,15 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 100,
     height: 50,
+    marginTop: 23,
     backgroundColor: "#FF6C00",
     alignItems: "center",
     justifyContent: "center",
+  },
+  footerText: {
+    fontSize: 16,
+    textAlign: "center",
+    marginTop: 16,
+    color: "#1B4371",
   },
 });
