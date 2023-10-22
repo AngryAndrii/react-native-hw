@@ -4,6 +4,8 @@ import {
   View,
   ImageBackground,
   TextInput,
+  Button,
+  TouchableOpacity,
 } from "react-native";
 
 const wallpaper = require("../images/photo-bg.png");
@@ -20,9 +22,21 @@ export default function RegistrationScreen() {
         <View style={styles.regContainer}>
           <View style={styles.avatarWrapper}></View>
           <Text style={styles.regText}>Реєстрація</Text>
-          <TextInput style={styles.textInput} />
-          <TextInput style={styles.textInput} />
-          <TextInput style={styles.textInput} />
+          <TextInput style={styles.textInput} placeholder="Логін" />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Адреса електронної пошти"
+          />
+          <View style={{ position: "relative" }}>
+            <TextInput style={styles.textInput} placeholder="Пароль" />
+            <Text style={{ position: "absolute", top: 15, right: 15 }}>
+              Показати
+            </Text>
+          </View>
+
+          <TouchableOpacity style={styles.button}>
+            <Text style={{ ...styles.mainColor }}>Зареєстуватися</Text>
+          </TouchableOpacity>
         </View>
       </ImageBackground>
     </View>
@@ -30,6 +44,9 @@ export default function RegistrationScreen() {
 }
 
 const styles = StyleSheet.create({
+  mainColor: {
+    color: "#fff",
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -66,6 +83,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: "#212121",
     marginBottom: 32,
+    fontWeight: "500",
   },
   textInput: {
     height: 50,
@@ -74,5 +92,17 @@ const styles = StyleSheet.create({
     borderColor: "#e8e8e8",
     borderRadius: 8,
     marginBottom: 16,
+    padding: 15,
+    color: "#bdbdbd",
+    fontSize: 15,
+    fontWeight: "normal",
+    fontWeight: "400",
+  },
+  button: {
+    borderRadius: 100,
+    height: 50,
+    backgroundColor: "#FF6C00",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
